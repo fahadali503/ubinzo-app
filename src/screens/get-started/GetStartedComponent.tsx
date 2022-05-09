@@ -12,7 +12,7 @@ type Props = {
 }
 export function GetStartedComponent({ item }: Props) {
     return (
-        <Box style={styles.shadow} borderWidth={1} alignSelf={"center"} width={350} mt={'100px'} px={4} borderColor={Colors.grey} borderRadius="lg" >
+        <Box style={styles.shadow} borderWidth={1} alignSelf={"center"} width={350} mt={'80px'} px={4} borderColor={Colors.grey} borderRadius="lg" >
             <VStack space={5}>
                 <Text color={Colors.brown} letterSpacing={LETTER_SPACING} textAlign={'center'} mt={4} fontWeight={600} fontSize={25}>
                     {item.title}

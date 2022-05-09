@@ -8,9 +8,9 @@ import { Colors } from '@src/utils/colors';
 import { CustomWidths, LETTER_SPACING } from '@src/utils/constants';
 
 const data = [
-    { title: "Wanna Sell Product?", description: "Start selling now to earn immediately. You can add salesman into your business so they can help you to grow your business." },
-    { title: "Are You a Salesman?", description: "Contract any business and start selling their products to earn. You can withdrawal your amount anytime." },
-    { title: "Wanna Purchase Product?", description: "You can purchase any product and can track the location of your product in real time." }
+    { title: "Do you want to expand your business?", description: "Start selling now to earn immediately. You can add salesman into your business so they can help you to grow your business." },
+    { title: "Are you looking for a job?", description: "Contract with any business and start selling their products to earn. You can withdrawal your amount anytime." },
+    { title: "Are you tired of searching products?", description: "You can purchase any product and can track the location of your product in real time. Search products that are available in your city." }
 ]
 export default function GetStartedScreen() {
     const [activeSlide, setActiveSlide] = useState(0)
@@ -35,9 +35,8 @@ export default function GetStartedScreen() {
                 }}
                 sliderWidth={CustomWidths.full}
                 itemWidth={CustomWidths.full}
-
-                // autoplay
-                // autoplayDelay={5}
+                autoplay
+                autoplayDelay={5}
                 onSnapToItem={(index) => setActiveSlide(index)}
             />
 
