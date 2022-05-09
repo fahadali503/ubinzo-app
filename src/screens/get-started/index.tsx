@@ -24,7 +24,7 @@ export default function GetStartedScreen() {
                 source={require('../../../assets/shopping.json')}
                 autoPlay
                 style={{
-                    width: useWindowDimensions().width - 50,
+                    width: CustomWidths.full - 50,
                     marginTop: 20
                 }}
             />
