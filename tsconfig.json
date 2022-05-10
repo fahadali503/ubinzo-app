@@ -5,17 +5,25 @@
     "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react-native",
-    "lib": ["DOM", "ESNext"],
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "moduleResolution": "node",
     "noEmit": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "target": "ESNext", 
+    "target": "ESNext",
+    "allowSyntheticDefaultImports": true,
     "module": "CommonJS",
     "paths": {
-      "@src/*": ["./src/*"],
-      "@assets/*": ["./assets/*"]
+      "@src/*": [
+        "./src/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ]
     }
   }
 }

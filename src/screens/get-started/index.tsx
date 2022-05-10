@@ -12,7 +12,7 @@ const data = [
     { title: "Are you looking for a job?", description: "Contract with any business and start selling their products to earn. You can withdrawal your amount anytime." },
     { title: "Are you tired of searching products?", description: "You can purchase any product and can track the location of your product in real time. Search products that are available in your city." }
 ]
-export default function GetStartedScreen() {
+export function GetStartedScreen() {
     const [activeSlide, setActiveSlide] = useState(0)
     const animation = useRef(null);
     const carousel = useRef(null);
@@ -27,6 +27,7 @@ export default function GetStartedScreen() {
                     width: CustomWidths.full - 50,
                     marginTop: 20
                 }}
+                loop
             />
             <Carousel
                 data={data}
