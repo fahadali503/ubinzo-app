@@ -1,9 +1,12 @@
 import { SIGN_UP_ROLES } from '@src/utils/enums'
 import { Box, Button, Center, CheckIcon, FormControl, Heading, Input, Select, Text, VStack } from 'native-base'
-import React from 'react'
+import React, { useRef } from 'react'
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
+// import AnimatedLottieView from 'lottie-react-native';
+import { LETTER_SPACING } from '@src/utils/constants';
+import LottieView from 'lottie-react-native';
 
 
 const SignUpSchema = Yup.object().shape({
@@ -23,11 +26,19 @@ const initialValues = {
 }
 
 export function LoginScreen() {
-
+  const animation = useRef(null);
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Center w='100%'>
         <Box safeArea p="2" w="90%" maxW="290" py="8">
+          <LottieView
+            ref={animation}
+            source={require('@assets/lottie/signup')}
+            autoPlay
+            style={{
+              position: "relative"
+            }}
+          />
           <Heading size="lg" fontSize={30} color="coolGray.800" _dark={{
             color: "warmGray.50"
           }} fontWeight="semibold">
@@ -58,7 +69,11 @@ export function LoginScreen() {
                     value={values.password} />
                   {'password' in errors && 'password' in touched && <FormControl.ErrorMessage>{errors.password}</FormControl.ErrorMessage>}
                 </FormControl>
-                <Button onPress={() => handleSubmit()} mt="2" colorScheme="indigo">
+                <Button _text={{
+                  fontWeight: "semibold",
+                  fontSize: "lg",
+                  letterSpacing: LETTER_SPACING
+                }} onPress={() => handleSubmit()} mt="2" colorScheme="indigo">
                   Sign in
                 </Button>
               </VStack>

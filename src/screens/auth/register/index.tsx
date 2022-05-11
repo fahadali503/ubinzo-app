@@ -4,6 +4,7 @@ import React from 'react'
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { LETTER_SPACING } from '@src/utils/constants';
 
 
 const SignUpSchema = Yup.object().shape({
@@ -26,6 +27,7 @@ export default function RegisterScreen() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
       <Center w='100%'>
         <Box safeArea p="2" w="90%" maxW="290" py="8">
           <Heading size="lg" fontSize={30} color="coolGray.800" _dark={{
@@ -49,6 +51,7 @@ export default function RegisterScreen() {
                   <Input onChangeText={handleChange("username")}
                     onBlur={handleBlur("username")}
                     value={values.username}
+                    size='lg'
                   />
                   {'username' in errors && 'username' in touched && <FormControl.ErrorMessage>{errors.username}</FormControl.ErrorMessage>}
                 </FormControl>
@@ -57,7 +60,9 @@ export default function RegisterScreen() {
                   <FormControl.Label>Full Name</FormControl.Label>
                   <Input onChangeText={handleChange("fullName")}
                     onBlur={handleBlur("fullName")}
-                    value={values.fullName} />
+                    value={values.fullName}
+                    size='lg'
+                  />
                   {'fullName' in errors && 'fullName' in touched && <FormControl.ErrorMessage>{errors.fullName}</FormControl.ErrorMessage>}
                 </FormControl>
                 {/* Email */}
@@ -65,7 +70,9 @@ export default function RegisterScreen() {
                   <FormControl.Label>Email</FormControl.Label>
                   <Input onChangeText={handleChange("email")}
                     onBlur={handleBlur("email")}
-                    value={values.email} />
+                    value={values.email}
+                    size='lg'
+                  />
                   {'email' in errors && 'email' in touched && <FormControl.ErrorMessage>{errors.email}</FormControl.ErrorMessage>}
                 </FormControl>
                 {/* Password Field */}
@@ -73,13 +80,15 @@ export default function RegisterScreen() {
                   <FormControl.Label>Password</FormControl.Label>
                   <Input type="password" onChangeText={handleChange("password")}
                     onBlur={handleBlur("password")}
-                    value={values.password} />
+                    value={values.password}
+                    size='lg'
+                  />
                   {'password' in errors && 'password' in touched && <FormControl.ErrorMessage>{errors.password}</FormControl.ErrorMessage>}
                 </FormControl>
                 {/* Choose Account Type */}
                 <FormControl isRequired isInvalid={'role' in errors && 'role' in touched}>
                   <FormControl.Label>Choose Account Type</FormControl.Label>
-                  <Select onValueChange={handleChange("role")}
+                  <Select size='lg' onValueChange={handleChange("role")}
                     selectedValue={values.role} minWidth="200" accessibilityLabel="Choose Service" placeholder="Choose Service" _selectedItem={{
                       bg: "teal.600",
                       endIcon: <CheckIcon size="5"
@@ -89,7 +98,11 @@ export default function RegisterScreen() {
                   </Select>
                   {'role' in errors && 'role' in touched && <FormControl.ErrorMessage>{errors.role}</FormControl.ErrorMessage>}
                 </FormControl>
-                <Button onPress={() => handleSubmit()} mt="2" colorScheme="indigo">
+                <Button _text={{
+                  fontWeight: "semibold",
+                  fontSize: "lg",
+                  letterSpacing: LETTER_SPACING
+                }} onPress={() => handleSubmit()} mt="2" colorScheme="indigo">
                   Sign up
                 </Button>
               </VStack>
