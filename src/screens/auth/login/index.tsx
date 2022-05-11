@@ -31,6 +31,7 @@ export function LoginScreen() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Center w='100%'>
         <Box safeArea p="2" w="90%" maxW="290" py="8">
+          {/* @ts-ignore */}
           <LottieView
             ref={animation}
             source={require('@assets/lottie/signup')}
