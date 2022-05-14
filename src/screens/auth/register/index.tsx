@@ -131,7 +131,7 @@ export default function RegisterScreen() {
                 </FormControl>
                 <RoundedButton
                   onPress={() => handleSubmit()}
-                  backgroundColor={Colors.blueBackgroundColor}
+                  backgroundColor={Colors.buttonBackgroundColor}
                   _text={{
                     color: "white",
                     fontWeight: 'medium',
@@ -149,8 +149,8 @@ export default function RegisterScreen() {
           </Formik>
           <Divider mt={2} />
           <HStack mt={2} space={2}>
-            <Text fontSize={17}>Already have an account?</Text>
-            <Text fontSize={17} fontWeight={'bold'}>Sign In</Text>
+            <Text color='gray.500' fontSize={17}>Already have an account?</Text>
+            <Text color='gray.500' fontSize={17} fontWeight={'bold'}>Sign In</Text>
           </HStack>
         </Box>
       </Center>
