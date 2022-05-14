@@ -33,12 +33,7 @@ export default function RegisterScreen() {
           <Heading size="lg" fontSize={30} color="coolGray.800" _dark={{
             color: "warmGray.50"
           }} fontWeight="semibold">
-            Welcome
-          </Heading>
-          <Heading mt="1" color="coolGray.600" _dark={{
-            color: "warmGray.200"
-          }} fontWeight="medium" size="md">
-            Sign up to continue!
+            Sign Up
           </Heading>
 
           <Formik initialValues={initialValues} onSubmit={values => console.log(values)} validationSchema={SignUpSchema}>

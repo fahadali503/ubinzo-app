@@ -4,9 +4,9 @@ import React, { useRef } from 'react'
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
-// import AnimatedLottieView from 'lottie-react-native';
 import { LETTER_SPACING } from '@src/utils/constants';
 import LottieView from 'lottie-react-native';
+import { Colors } from '@src/utils/colors';
 
 
 const SignUpSchema = Yup.object().shape({
@@ -57,7 +57,7 @@ export function LoginScreen() {
                 {/* Email */}
                 <FormControl isRequired isInvalid={'email' in errors && 'email' in touched}>
                   <FormControl.Label>Email</FormControl.Label>
-                  <Input onChangeText={handleChange("email")}
+                  <Input size={'lg'} onChangeText={handleChange("email")}
                     onBlur={handleBlur("email")}
                     value={values.email} />
                   {'email' in errors && 'email' in touched && <FormControl.ErrorMessage>{errors.email}</FormControl.ErrorMessage>}
@@ -65,7 +65,7 @@ export function LoginScreen() {
                 {/* Password Field */}
                 <FormControl isRequired isInvalid={'password' in errors && 'password' in touched}>
                   <FormControl.Label>Password</FormControl.Label>
-                  <Input type="password" onChangeText={handleChange("password")}
+                  <Input type='password' size={'lg'} onChangeText={handleChange("password")}
                     onBlur={handleBlur("password")}
                     value={values.password} />
                   {'password' in errors && 'password' in touched && <FormControl.ErrorMessage>{errors.password}</FormControl.ErrorMessage>}
@@ -74,7 +74,7 @@ export function LoginScreen() {
                   fontWeight: "semibold",
                   fontSize: "lg",
                   letterSpacing: LETTER_SPACING
-                }} onPress={() => handleSubmit()} mt="2" colorScheme="indigo">
+                }} onPress={() => handleSubmit()} mt="2" colorScheme={"indigo"}>
                   Sign in
                 </Button>
               </VStack>
