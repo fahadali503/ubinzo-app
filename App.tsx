@@ -6,10 +6,11 @@ import { LogBox } from 'react-native'
 import GetStartedScreen from '@src/screens/get-started';
 import RegisterScreen from '@src/screens/auth/register';
 import { LoginScreen } from '@src/screens/auth/login';
+import BusinessManDashboardScreen from '@src/screens/business-man/dashboard';
 
 // This is for development purposes. I have added the line because everytime the GetStarted Screen render, this error appear. So I disabled it. This doesn't effect any code. It is just for development purposes.
 // ignoreWarnings("log", "ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types")
-LogBox.ignoreLogs(["ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types"])
+LogBox.ignoreLogs(["ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types", "VirtualizedLists should never be nested"])
 
 export default function App() {
   const { fontsLoaded } = useFont();
@@ -19,7 +20,7 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={nativeBaseThemeConfig}>
-      <LoginScreen />
+      <BusinessManDashboardScreen />
     </NativeBaseProvider>
   );
 }
