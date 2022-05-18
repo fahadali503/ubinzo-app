@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Invite & Sale",
-    "slug": "invite-and-sale",
+    "name": "UBinzo",
+    "slug": "ubinzo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logos/black-logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logos/black-logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
