@@ -96,7 +96,7 @@ export default function BusinessManDashboardScreen() {
                 {/* Upcomming Appointment */}
                 <VStack space={3} py={3} px={5} borderColor={'#EBECF0'} borderWidth={1} borderRadius={8} style={styles.upcommingShadow}>
                     <Box>
-                        <Text fontWeight={'semibold'} fontSize={'15'} color={Colors.purple}>Upcomming Appointment</Text>
+                        <Text fontWeight={'semibold'} fontSize={'15'} color={Colors.blueBackgroundColor}>Upcomming Appointment</Text>
                         <Text fontWeight={'normal'} color={'gray.400'}>15 Appointments in the Past</Text>
                     </Box>
                     <HStack space={3}>
