@@ -10,7 +10,7 @@ type Props = {
 const customStyles = {
     stepIndicatorSize: 25,
     currentStepIndicatorSize: 30,
-    separatorStrokeWidth: 2,
+    separatorStrokeWidth: 3,
     currentStepStrokeWidth: 3,
     stepStrokeCurrentColor: '#fe7013',
     stepStrokeWidth: 3,
@@ -21,13 +21,13 @@ const customStyles = {
     stepIndicatorFinishedColor: '#fe7013',
     stepIndicatorUnFinishedColor: '#ffffff',
     stepIndicatorCurrentColor: '#ffffff',
-    stepIndicatorLabelFontSize: 13,
-    currentStepIndicatorLabelFontSize: 13,
+    stepIndicatorLabelFontSize: 16,
+    currentStepIndicatorLabelFontSize: 16,
     stepIndicatorLabelCurrentColor: '#fe7013',
     stepIndicatorLabelFinishedColor: '#ffffff',
     stepIndicatorLabelUnFinishedColor: '#aaaaaa',
-    labelColor: '#999999',
-    labelSize: 13,
+    labelColor: '#c7c7c9',
+    labelSize: 16,
     currentStepLabelColor: '#fe7013'
 }
 export default function StepIndicatorComponent({ currentPosition, labels }: Props) {
