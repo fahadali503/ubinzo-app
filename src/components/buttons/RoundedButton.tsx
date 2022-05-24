@@ -10,7 +10,7 @@ interface Props extends IButtonProps {
 export const RoundedButton: React.FC<Props> = (props: Props) => {
     return (
         <Button size={'md'} backgroundColor={'white'}
-            _text={{ color: Colors.blueBackgroundColor, fontWeight: "bold", fontSize: "xl" }}
+            _text={{ color: Colors.blueBackgroundColor, fontWeight: "semibold", fontSize: "xl" }}
             width={'80%'}
             mx={"auto"}
             rounded={"2xl"}

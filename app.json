@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logos/black-logo.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/logos/black-logo.png",
       "resizeMode": "contain",
@@ -28,6 +28,13 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins":[
+     [ "expo-media-library",{
+      "photosPermission":"Allow UBinzo to access your photos.",
+      "savePhotosPermission":"Allow UBinzo to save photos",
+      "isAccessMediaLocationEnabled":true
+    }]
+    ]
   }
 }

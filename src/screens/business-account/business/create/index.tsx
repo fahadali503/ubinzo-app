@@ -1,12 +1,31 @@
 import { Box, HStack, Image, Text } from 'native-base'
-import React from 'react'
-import StepIndicatorComponent from './StepIndicator';
-import { Sphere } from '@src/components/svgs/Sphere.svg'
+import React, { useMemo, useRef, useState } from 'react'
+import StepIndicatorComponent from './steps/StepIndicator';
 import { StyleSheet } from 'react-native'
 import { CreateBusinessInformation } from './steps/Information';
+import Intro from './steps/Intro';
+import Details from './steps/Details';
+import Wizard from 'react-native-wizard';
+import { WizardProps } from '@src/utils/types/common.types';
 
-const labels = ['Details', 'Intro', 'Information']
+
+const labels = ['Information', 'Intro', 'Details']
 export default function CreateBusinessScreen() {
+
+  const [isFirstStep, setIsFirstStep] = useState(true)
+  const [isLastStep, setIsLastStep] = useState(false)
+  const [currentStep, setCurrentStep] = useState(0)
+  const wizardRef = useRef<WizardProps>(null);
+  const stepList = useMemo(() => {
+    return [
+      {
+        content: <CreateBusinessInformation wizardRef={wizardRef} />
+      },
+      { content: <Intro wizardRef={wizardRef} /> },
+      { content: <Details wizardRef={wizardRef} /> },
+    ]
+  }, [])
+
   return (
     <Box flex={1} safeArea>
       {/* Images */}
@@ -20,10 +39,25 @@ export default function CreateBusinessScreen() {
         <Text fontSize={28} fontWeight={'semibold'} letterSpacing={3}>siness</Text>
       </HStack>
       {/* Step Indicators */}
-      <StepIndicatorComponent currentPosition={4} labels={labels} />
+      <StepIndicatorComponent currentPosition={currentStep} labels={labels} />
 
       {/* Steps */}
-      <CreateBusinessInformation />
+      <Wizard
+        ref={wizardRef}
+        steps={stepList}
+        isFirstStep={val => setIsFirstStep(val)}
+        isLastStep={val => setIsLastStep(val)}
+        onNext={() => {
+          console.log("Next Step Called")
+        }}
+        onPrev={() => {
+          console.log("Previous Step Called")
+        }}
+        currentStep={({ currentStep, isLastStep, isFirstStep }) => {
+          setCurrentStep(currentStep)
+        }}
+        contentContainerStyle={{ flex: 1 }}
+      />
     </Box>
   )
 }
