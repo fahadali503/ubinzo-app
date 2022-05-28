@@ -38,6 +38,7 @@
     "react-native": "0.68.2",
     "react-native-country-picker-modal": "^2.0.0",
     "react-native-dropdown-picker": "^5.4.2",
+    "react-native-geocoder": "^0.5.0",
     "react-native-gesture-handler": "~2.2.1",
     "react-native-indicators": "^0.17.0",
     "react-native-modal-datetime-picker": "^13.1.2",
@@ -54,6 +55,7 @@
     "react-native-video": "^5.2.0",
     "react-native-web": "0.17.7",
     "react-native-wizard": "^2.1.0",
+    "use-google-places": "^1.0.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {

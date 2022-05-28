@@ -7,6 +7,9 @@ import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { LETTER_SPACING } from '@src/utils/constants';
 import { Colors } from '@src/utils/colors';
 import { RoundedButton } from '@src/components/buttons/RoundedButton';
+import { useNavigation } from '@react-navigation/native';
+import { GetStartedNavigationProps } from '@src/navigation/GetStarted.navigation';
+import { GET_STARTED_SCREEN_NAMES } from '@src/navigation/screen-names';
 
 
 const SignUpSchema = Yup.object().shape({
@@ -26,7 +29,7 @@ const initialValues = {
 }
 
 export function LoginScreen() {
-  const animation = useRef(null);
+  const navigation = useNavigation<GetStartedNavigationProps>()
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Center w='100%'>
@@ -55,7 +58,6 @@ export function LoginScreen() {
                   <Input size={'lg'} onChangeText={handleChange("email")}
                     onBlur={handleBlur("email")}
                     value={values.email}
-                    backgroundColor={Colors.inputBackgroundColor}
                     py={4}
                     px={4}
                     rounded={'2xl'}
@@ -70,7 +72,6 @@ export function LoginScreen() {
                   <Input type='password' size={'lg'} onChangeText={handleChange("password")}
                     onBlur={handleBlur("password")}
                     value={values.password}
-                    backgroundColor={Colors.inputBackgroundColor}
                     py={4}
                     px={4}
                     keyboardType={"visible-password"}
@@ -101,7 +102,7 @@ export function LoginScreen() {
           <Divider mt={4} />
           <HStack space={1} mt={4}>
             <Text fontSize={17} color='gray.500'>Don't have an account?</Text>
-            <Text fontWeight={'semibold'} color='gray.500' fontSize={17}>Sign Up</Text>
+            <Text onPress={() => navigation.navigate(GET_STARTED_SCREEN_NAMES.REGISTER)} fontWeight={'semibold'} color='gray.500' fontSize={17}>Sign Up</Text>
           </HStack>
         </Box>
       </Center>

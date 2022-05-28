@@ -1,9 +1,10 @@
+import { IMeetingDuration } from '@src/utils/business-account/bussiness.types'
 import { Colors } from '@src/utils/colors'
 import { CheckIcon, ISelectProps, Select } from 'native-base'
 import React from 'react'
 
 interface IProps extends ISelectProps {
-    list: string[]
+    list: string[] | IMeetingDuration[]
 }
 export default function FormSelect({ list, ...props }: IProps) {
     return (
@@ -14,7 +15,10 @@ export default function FormSelect({ list, ...props }: IProps) {
             size={'lg'}
         >
             {list.map((type, index) => {
-                return <Select.Item label={type} key={index} value={type} />
+                if (typeof type === 'string') {
+                    return <Select.Item label={type} key={index} value={type} />
+                }
+                return <Select.Item label={type.label} value={type.value} key={index} />
             })}
         </Select>
     )

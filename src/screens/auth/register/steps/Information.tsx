@@ -32,10 +32,10 @@ export default function InformationStep<T extends { [key: string]: any }>({ sign
     return (
         <Box>
             <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-                <ScrollView>
-                    <KeyboardAvoidingView h={{ base: '500px', lg: 'auto', }} behavior={Platform.OS === 'ios' ? "padding" : "height"}
-                        keyboardVerticalOffset={Platform.OS === 'ios' ? screen.height * 0.25 : screen.height * 0.5}
-                    >
+                <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? "height" : "padding"}
+                    keyboardVerticalOffset={Platform.OS === 'ios' ? screen.height * 0.25 : screen.height * 0.5}
+                >
+                    <ScrollView showsVerticalScrollIndicator={false}>
                         {/* Username */}
                         <VStack>
                             <FormControl isRequired isInvalid={'username' in signUpFormik.errors && 'username' in signUpFormik.touched}>
@@ -128,8 +128,8 @@ export default function InformationStep<T extends { [key: string]: any }>({ sign
                             />
                             {'qualification' in errors && 'qualification' in touched && <FormControl.ErrorMessage>{errors.qualification}</FormControl.ErrorMessage>}
                         </FormControl>
-                    </KeyboardAvoidingView>
-                </ScrollView>
+                    </ScrollView>
+                </KeyboardAvoidingView>
             </TouchableWithoutFeedback>
         </Box>
 

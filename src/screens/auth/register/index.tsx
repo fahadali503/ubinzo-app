@@ -11,7 +11,10 @@ import { WizardProps } from '@src/utils/types/common.types';
 import Credentials from './steps/Credentials';
 import InformationStep from './steps/Information';
 import Wizard from 'react-native-wizard';
-
+import { useNavigation } from '@react-navigation/native';
+import { GET_STARTED_SCREEN_NAMES } from '@src/navigation/screen-names';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { GetStartedNavigationProps } from '@src/navigation/GetStarted.navigation';
 
 const SignUpSchema = Yup.object().shape({
   fullName: Yup.string().min(4, 'Too Short!').required("Full Name is Required!"),
@@ -36,6 +39,7 @@ export default function RegisterScreen() {
   const [isFirstStep, setIsFirstStep] = useState(true)
   const [isLastStep, setIsLastStep] = useState(false)
   const [currentStep, setCurrentStep] = useState(0);
+  const navigation = useNavigation<GetStartedNavigationProps>()
 
   const wizardRef = useRef<WizardProps>();
   const signUpFormik = useFormik({
@@ -52,7 +56,6 @@ export default function RegisterScreen() {
       content: <Credentials signUpFormik={signUpFormik} />,
     },
   ]), [signUpFormik])
-  // console.log(signUpFormik.values);
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Center w='100%'>
@@ -61,6 +64,14 @@ export default function RegisterScreen() {
             color: "warmGray.50"
           }} fontWeight="semibold">
             Sign Up
+          </Heading>
+          <Heading size="2xl"
+            fontSize={17}
+            mt={5}
+            color="gray.500"
+            w={'full'}
+            fontWeight="medium">
+            Please fill all the fields to create your Ubinzo account.
           </Heading>
           <VStack space={3} mt="10">
             {/* Username */}
@@ -129,10 +140,11 @@ export default function RegisterScreen() {
             </HStack>
           </VStack>
 
+
           <Divider mt={2} />
           <HStack mt={2} space={2}>
             <Text color='gray.500' fontSize={17}>Already have an account?</Text>
-            <Text color='gray.500' fontSize={17} fontWeight={'bold'}>Sign In</Text>
+            <Text onPress={() => navigation.navigate(GET_STARTED_SCREEN_NAMES.LOGIN)} color='gray.500' fontSize={17} fontWeight={'bold'}>Sign In</Text>
           </HStack>
         </Box>
       </Center>
